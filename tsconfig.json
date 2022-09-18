@@ -1,5 +1,6 @@
 {
   "include": ["src/**/*.ts"],
+  "exclude": ["./dist"],
   "compilerOptions": {
     "strict": true,
     "target": "es5",
