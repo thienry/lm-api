@@ -1,6 +1,5 @@
-// import { Id } from './id.value-object'
-import { BaseEntity } from './base.entity'
-import { Id } from '../value-object/id.value-object'
+import { BaseEntity } from '@shared/domain/entity/base.entity'
+import { Id } from '@shared/domain/value-object/id.value-object'
 
 describe('ID value object unit tests', () => {
   it('should create the base entity object if no param is passed', () =>

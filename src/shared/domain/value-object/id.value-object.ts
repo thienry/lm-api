@@ -1,6 +1,6 @@
 import { v4 as uuidV4 } from 'uuid'
 
-import { ValueObject } from './value-object.interface'
+import { ValueObject } from '@shared/domain/value-object/value-object.interface'
 
 class Id implements ValueObject {
   private _id: string

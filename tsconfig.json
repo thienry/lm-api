@@ -5,6 +5,7 @@
     "strict": true,
     "target": "es5",
     "outDir": "./dist",
+    "baseUrl": "./src",
     "incremental": true,
     "module": "commonjs",
     "skipLibCheck": true,
@@ -12,6 +13,11 @@
     "strictNullChecks": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@core/*": ["core/*"],
+      "@shared/*": ["shared/*"],
+      "@modules/*": ["modules/*"]
+    }
   }
 }

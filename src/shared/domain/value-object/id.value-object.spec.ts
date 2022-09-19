@@ -1,4 +1,4 @@
-import { Id } from './id.value-object'
+import { Id } from '@shared/domain/value-object/id.value-object'
 
 describe('ID value object unit tests', () => {
   it('should get ID if id no param is passed', () => expect(new Id()).toBeTruthy())
