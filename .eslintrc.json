@@ -6,6 +6,7 @@
   "parserOptions": { "ecmaVersion": 13, "sourceType": "module" },
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   "rules": {
+    "@typescript-eslint/no-empty-interface": "off",
     "import/prefer-default-export": "off",
     "class-methods-use-this": "off",
     "no-unused-vars": [
