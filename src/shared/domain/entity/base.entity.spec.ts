@@ -1,12 +1,12 @@
 import { BaseEntity } from '@shared/domain/entity/base.entity'
-import { Id } from '@shared/domain/value-object/id.value-object'
+import { ID } from '@shared/domain/value-object/id.value-object'
 
 describe('ID value object unit tests', () => {
   it('should create the base entity object if no param is passed', () =>
     expect(new BaseEntity()).toBeTruthy())
 
   it('should create the base entity object if params are passed', () => {
-    const createdId = new Id()
+    const createdId = new ID()
     const createdAt = new Date()
     const updatedAt = new Date()
 
