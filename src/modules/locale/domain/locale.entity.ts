@@ -4,7 +4,7 @@ import { AggregateRoot } from '@shared/domain/entity/aggregate-root.interface'
 
 type LocaleProps = {
   id?: ID
-  userId: ID
+  // userId: ID
   localeId: string
   extraInfo?: string
   displayName: string
@@ -23,8 +23,8 @@ class Locale extends BaseEntity implements AggregateRoot {
 
   constructor(props: LocaleProps) {
     super(props.id, props.createdAt, props.updatedAt)
-    this.validate()
     this.initProps(props)
+    this.validate()
   }
 
   initProps(props: LocaleProps) {
@@ -53,13 +53,6 @@ class Locale extends BaseEntity implements AggregateRoot {
 
   get nativeLanguageDescription(): string {
     return this._nativeLanguageDescription
-  }
-
-  changeLocaleId(localeId: string): void {
-    if (this._localeId) {
-      return
-    }
-    this._localeId = localeId
   }
 
   changeDisplayName(displayName: string): void {
