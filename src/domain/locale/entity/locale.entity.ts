@@ -4,7 +4,7 @@ import { AggregateRoot } from '@shared/domain/entity/aggregate-root.interface'
 
 type LocaleProps = {
   id?: ID
-  // userId: ID
+  userId: ID
   localeId: string
   extraInfo?: string
   displayName: string
@@ -20,6 +20,7 @@ class Locale extends BaseEntity implements AggregateRoot {
   private _displayName: string
   private _languageCode: string
   private _nativeLanguageDescription: string
+  private _userId: ID
 
   constructor(props: LocaleProps) {
     super(props.id, props.createdAt, props.updatedAt)
@@ -28,6 +29,7 @@ class Locale extends BaseEntity implements AggregateRoot {
   }
 
   initProps(props: LocaleProps) {
+    this._userId = props.userId
     this._localeId = props.localeId
     this._extraInfo = props.extraInfo
     this._displayName = props.displayName
@@ -55,6 +57,10 @@ class Locale extends BaseEntity implements AggregateRoot {
     return this._nativeLanguageDescription
   }
 
+  get userId(): ID {
+    return this._userId
+  }
+
   changeDisplayName(displayName: string): void {
     this._displayName = displayName
   }
@@ -71,7 +77,12 @@ class Locale extends BaseEntity implements AggregateRoot {
     this._nativeLanguageDescription = nativeLanguageDescription
   }
 
+  changeUserId(userId: ID): void {
+    this._userId = userId
+  }
+
   validate() {
+    if (!this._userId) throw new Error('User ID is required!')
     if (!this._localeId) throw new Error('Locale ID is required!')
     if (!this._displayName) throw new Error('Display name is required!')
     if (!this._languageCode) throw new Error('Language code is required!')

@@ -4,7 +4,7 @@ import { AggregateRoot } from '@shared/domain/entity/aggregate-root.interface'
 
 type AliasProps = {
   id?: ID
-  // userId: ID
+  userId: ID
   aliasId: string
   description: string
   extraInfo?: string
@@ -18,6 +18,7 @@ class Alias extends BaseEntity implements AggregateRoot {
   private _description: string
   private _extraInfo?: string
   private _isRestricted: boolean
+  private _userId: ID
 
   constructor(props: AliasProps) {
     super(props.id, props.createdAt, props.updatedAt)
@@ -29,6 +30,7 @@ class Alias extends BaseEntity implements AggregateRoot {
     this._aliasId = props.aliasId
     this._description = props.description
     this._extraInfo = props.extraInfo
+    this._userId = props.userId
     this._isRestricted = props.isRestricted ?? false
   }
 
@@ -48,6 +50,10 @@ class Alias extends BaseEntity implements AggregateRoot {
     return this._isRestricted
   }
 
+  get userId(): ID {
+    return this._userId
+  }
+
   changeDescription(description: string): void {
     this._description = description
   }
@@ -60,9 +66,14 @@ class Alias extends BaseEntity implements AggregateRoot {
     this._isRestricted = isRestricted
   }
 
+  changeUserId(userId: ID): void {
+    this._userId = userId
+  }
+
   validate(): void {
     if (!this._aliasId) throw new Error('Alias ID is required!')
     if (!this._description) throw new Error('Description is required!')
+    if (!this._userId) throw new Error('User ID is required!')
   }
 }
 

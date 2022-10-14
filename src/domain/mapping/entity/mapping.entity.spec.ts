@@ -8,6 +8,7 @@ describe('Mapping entity unit tests', () => {
     mapping = new Mapping({
       id: new ID(),
       key: 'key',
+      userId: new ID(),
       scriptName: 'scriptName',
     })
   })
@@ -15,6 +16,7 @@ describe('Mapping entity unit tests', () => {
   it('should throws when key is empty', () => {
     const mappingWithoutKey = {
       id: new ID(),
+      userId: new ID(),
       key: '',
       scriptName: 'scriptName',
     }
@@ -25,6 +27,7 @@ describe('Mapping entity unit tests', () => {
   it('should throws when script name is empty', () => {
     const mappingWithoutScriptName = {
       id: new ID(),
+      userId: new ID(),
       key: 'key',
       scriptName: '',
     }
@@ -46,5 +49,11 @@ describe('Mapping entity unit tests', () => {
     const scriptNameChanged = 'script name changed'
     mapping.changeScriptName(scriptNameChanged)
     expect(mapping.scriptName).toBe(scriptNameChanged)
+  })
+
+  it('should change userId', () => {
+    const userId = new ID()
+    mapping.changeUserId(userId)
+    expect(mapping.userId).toBe(userId)
   })
 })

@@ -7,6 +7,7 @@ describe('Locale entity unit tests', () => {
   beforeEach(() => {
     locale = new Locale({
       id: new ID(),
+      userId: new ID(),
       localeId: 'localeId',
       displayName: 'displayName',
       languageCode: 'languageCode',
@@ -94,5 +95,11 @@ describe('Locale entity unit tests', () => {
     const nativeLanguageDescriptionChanged = 'native language description changed'
     locale.changeNativeLanguageDescription(nativeLanguageDescriptionChanged)
     expect(locale.nativeLanguageDescription).toBe(nativeLanguageDescriptionChanged)
+  })
+
+  it('should change userId', () => {
+    const userId = new ID()
+    locale.changeUserId(userId)
+    expect(locale.userId).toBe(userId)
   })
 })

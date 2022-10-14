@@ -6,7 +6,7 @@ type MappingProps = {
   id?: ID
   key: string
   // roleId: ID
-  // userId: ID
+  userId: ID
   scriptName: string
   createdAt?: Date
   updatedAt?: Date
@@ -14,6 +14,7 @@ type MappingProps = {
 
 class Mapping extends BaseEntity implements AggregateRoot {
   private _key: string
+  private _userId: ID
   private _scriptName: string
 
   constructor(props: MappingProps) {
@@ -24,6 +25,7 @@ class Mapping extends BaseEntity implements AggregateRoot {
 
   initProps(props: MappingProps): void {
     this._key = props.key
+    this._userId = props.userId
     this._scriptName = props.scriptName
   }
 
@@ -35,6 +37,10 @@ class Mapping extends BaseEntity implements AggregateRoot {
     return this._scriptName
   }
 
+  get userId(): ID {
+    return this._userId
+  }
+
   changeKey(key: string): void {
     this._key = key
   }
@@ -43,8 +49,13 @@ class Mapping extends BaseEntity implements AggregateRoot {
     this._scriptName = scriptName
   }
 
+  changeUserId(userId: ID): void {
+    this._userId = userId
+  }
+
   validate(): void {
     if (!this._key) throw new Error('Key is required!')
+    if (!this._userId) throw new Error('User ID is required!')
     if (!this._scriptName) throw new Error('Script Name is required!')
   }
 }

@@ -7,6 +7,7 @@ describe('Alias entity unit tests', () => {
   beforeEach(() => {
     alias = new Alias({
       id: new ID(),
+      userId: new ID(),
       aliasId: 'aliasId',
       description: 'description',
     })
@@ -16,6 +17,7 @@ describe('Alias entity unit tests', () => {
     const aliasWithouAliasID = {
       id: new ID(),
       aliasId: '',
+      userId: new ID(),
       description: 'description',
     }
 
@@ -26,6 +28,7 @@ describe('Alias entity unit tests', () => {
     const aliasWithoutDescription = {
       id: new ID(),
       aliasId: 'aliasId',
+      userId: new ID(),
       description: '',
     }
 
@@ -56,5 +59,11 @@ describe('Alias entity unit tests', () => {
     const isRestrictedChanged = true
     alias.changeIsRestricted(isRestrictedChanged)
     expect(alias.isRestricted).toBe(isRestrictedChanged)
+  })
+
+  it('should change userId', () => {
+    const userId = new ID()
+    alias.changeUserId(userId)
+    expect(alias.userId).toBe(userId)
   })
 })
