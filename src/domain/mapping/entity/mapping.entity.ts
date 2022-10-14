@@ -5,8 +5,8 @@ import { AggregateRoot } from '@shared/domain/entity/aggregate-root.interface'
 type MappingProps = {
   id?: ID
   key: string
-  // roleId: string
-  // userId: string
+  // roleId: ID
+  // userId: ID
   scriptName: string
   createdAt?: Date
   updatedAt?: Date
