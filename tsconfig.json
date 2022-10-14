@@ -15,9 +15,9 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@core/*": ["core/*"],
+      "@domain/*": ["domain/*"],
       "@shared/*": ["shared/*"],
-      "@modules/*": ["modules/*"]
+      "@infra/*": ["infra/*"]
     }
   }
 }
