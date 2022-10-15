@@ -7,7 +7,7 @@ describe('Alias factory unit tests', () => {
       aliasId: 'ROW',
       description: 'Row Locales',
       isRestricted: true,
-      userId: new ID(),
+      userId: new ID().id,
       extraInfo: 'This is some extra information',
     })
 

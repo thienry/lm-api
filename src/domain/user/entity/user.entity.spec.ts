@@ -6,7 +6,7 @@ let user: User
 describe('User entity unit tests', () => {
   beforeEach(() => {
     user = new User({
-      id: new ID(),
+      id: new ID().id,
       name: 'John',
       surname: 'Doe',
       login: 'john.doe',
@@ -17,7 +17,7 @@ describe('User entity unit tests', () => {
 
   it('should throws when name is empty', () => {
     const userWithouName = {
-      id: new ID(),
+      id: new ID().id,
       name: '',
       surname: 'Doe',
       login: 'john.doe',
@@ -30,7 +30,7 @@ describe('User entity unit tests', () => {
 
   it('should throws when surname is empty', () => {
     const userWithoutSurname = {
-      id: new ID(),
+      id: new ID().id,
       name: 'John',
       surname: '',
       login: 'john.doe',
@@ -43,7 +43,7 @@ describe('User entity unit tests', () => {
 
   it('should throws when login is empty', () => {
     const userWithoutLogin = {
-      id: new ID(),
+      id: new ID().id,
       name: 'John',
       surname: 'Doe',
       login: '',
@@ -56,7 +56,7 @@ describe('User entity unit tests', () => {
 
   it('should throws when email is empty', () => {
     const userWithoutEmail = {
-      id: new ID(),
+      id: new ID().id,
       name: 'John',
       surname: 'Doe',
       login: 'john.doe',
@@ -69,7 +69,7 @@ describe('User entity unit tests', () => {
 
   it('should throws when password is empty', () => {
     const userWithoutPassword = {
-      id: new ID(),
+      id: new ID().id,
       name: 'John',
       surname: 'Doe',
       login: 'john.doe',

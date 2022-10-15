@@ -1,17 +1,17 @@
 import { ID } from '@shared/domain/value-object/id.value-object'
 
 class BaseEntity {
-  private _id: ID
+  private _id: string
   private _createdAt: Date
   private _updatedAt: Date
 
-  constructor(id?: ID, createdAt?: Date, updatedAt?: Date) {
-    this._id = id ?? new ID()
+  constructor(id?: string, createdAt?: Date, updatedAt?: Date) {
+    this._id = id ?? new ID().id
     this._createdAt = createdAt ?? new Date()
     this._updatedAt = updatedAt ?? new Date()
   }
 
-  get id(): ID {
+  get id(): string {
     return this._id
   }
 

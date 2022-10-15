@@ -1,12 +1,11 @@
 import { BaseEntity } from '@shared/domain/entity/base.entity'
-import { ID } from '@shared/domain/value-object/id.value-object'
 import { AggregateRoot } from '@shared/domain/entity/aggregate-root.interface'
 
 type MappingProps = {
-  id?: ID
+  id?: string
   key: string
-  // roleId: ID
-  userId: ID
+  // roleId: string
+  userId: string
   scriptName: string
   createdAt?: Date
   updatedAt?: Date
@@ -14,7 +13,7 @@ type MappingProps = {
 
 class Mapping extends BaseEntity implements AggregateRoot {
   private _key: string
-  private _userId: ID
+  private _userId: string
   private _scriptName: string
 
   constructor(props: MappingProps) {
@@ -37,7 +36,7 @@ class Mapping extends BaseEntity implements AggregateRoot {
     return this._scriptName
   }
 
-  get userId(): ID {
+  get userId(): string {
     return this._userId
   }
 
@@ -49,7 +48,7 @@ class Mapping extends BaseEntity implements AggregateRoot {
     this._scriptName = scriptName
   }
 
-  changeUserId(userId: ID): void {
+  changeUserId(userId: string): void {
     this._userId = userId
   }
 

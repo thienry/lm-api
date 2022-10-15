@@ -1,9 +1,8 @@
 import { BaseEntity } from '@shared/domain/entity/base.entity'
-import { ID } from '@shared/domain/value-object/id.value-object'
 import { AggregateRoot } from '@shared/domain/entity/aggregate-root.interface'
 
 type UserProps = {
-  id?: ID
+  id?: string
   name: string
   surname: string
   login: string

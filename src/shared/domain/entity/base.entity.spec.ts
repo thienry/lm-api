@@ -6,7 +6,7 @@ describe('ID value object unit tests', () => {
     expect(new BaseEntity()).toBeTruthy())
 
   it('should create the base entity object if params are passed', () => {
-    const createdId = new ID()
+    const createdId = new ID().id
     const createdAt = new Date()
     const updatedAt = new Date()
 

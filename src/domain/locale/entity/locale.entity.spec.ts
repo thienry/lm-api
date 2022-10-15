@@ -6,8 +6,8 @@ let locale: Locale
 describe('Locale entity unit tests', () => {
   beforeEach(() => {
     locale = new Locale({
-      id: new ID(),
-      userId: new ID(),
+      id: new ID().id,
+      userId: new ID().id,
       localeId: 'localeId',
       displayName: 'displayName',
       languageCode: 'languageCode',
@@ -17,8 +17,8 @@ describe('Locale entity unit tests', () => {
 
   it('should throws when localeID is empty', () => {
     const localeWithouLocaleID = {
-      id: new ID(),
-      userId: new ID(),
+      id: new ID().id,
+      userId: new ID().id,
       localeId: '',
       displayName: 'displayName',
       languageCode: 'languageCode',
@@ -30,8 +30,8 @@ describe('Locale entity unit tests', () => {
 
   it('should throws when display name is empty', () => {
     const localeWithoutDisplayName = {
-      id: new ID(),
-      userId: new ID(),
+      id: new ID().id,
+      userId: new ID().id,
       displayName: '',
       localeId: 'localeId',
       languageCode: 'languageCode',
@@ -43,8 +43,8 @@ describe('Locale entity unit tests', () => {
 
   it('should throws when language code is empty', () => {
     const localeWithoutLanguageCode = {
-      id: new ID(),
-      userId: new ID(),
+      id: new ID().id,
+      userId: new ID().id,
       languageCode: '',
       localeId: 'localeId',
       displayName: 'displayName',
@@ -56,8 +56,8 @@ describe('Locale entity unit tests', () => {
 
   it('should throws when native language description is empty', () => {
     const localeWithoutNativeDescription = {
-      id: new ID(),
-      userId: new ID(),
+      id: new ID().id,
+      userId: new ID().id,
       localeId: 'localeId',
       displayName: 'displayName',
       languageCode: 'languageCode',
@@ -98,7 +98,7 @@ describe('Locale entity unit tests', () => {
   })
 
   it('should change userId', () => {
-    const userId = new ID()
+    const userId = new ID().id
     locale.changeUserId(userId)
     expect(locale.userId).toBe(userId)
   })

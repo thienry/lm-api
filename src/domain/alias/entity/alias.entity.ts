@@ -1,10 +1,9 @@
 import { BaseEntity } from '@shared/domain/entity/base.entity'
-import { ID } from '@shared/domain/value-object/id.value-object'
 import { AggregateRoot } from '@shared/domain/entity/aggregate-root.interface'
 
 type AliasProps = {
-  id?: ID
-  userId: ID
+  id?: string
+  userId: string
   aliasId: string
   description: string
   extraInfo?: string
@@ -18,7 +17,7 @@ class Alias extends BaseEntity implements AggregateRoot {
   private _description: string
   private _extraInfo?: string
   private _isRestricted: boolean
-  private _userId: ID
+  private _userId: string
 
   constructor(props: AliasProps) {
     super(props.id, props.createdAt, props.updatedAt)
@@ -50,7 +49,7 @@ class Alias extends BaseEntity implements AggregateRoot {
     return this._isRestricted
   }
 
-  get userId(): ID {
+  get userId(): string {
     return this._userId
   }
 
@@ -66,7 +65,7 @@ class Alias extends BaseEntity implements AggregateRoot {
     this._isRestricted = isRestricted
   }
 
-  changeUserId(userId: ID): void {
+  changeUserId(userId: string): void {
     this._userId = userId
   }
 

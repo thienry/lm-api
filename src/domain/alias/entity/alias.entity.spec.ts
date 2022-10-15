@@ -6,8 +6,8 @@ let alias: Alias
 describe('Alias entity unit tests', () => {
   beforeEach(() => {
     alias = new Alias({
-      id: new ID(),
-      userId: new ID(),
+      id: new ID().id,
+      userId: new ID().id,
       aliasId: 'aliasId',
       description: 'description',
     })
@@ -15,9 +15,9 @@ describe('Alias entity unit tests', () => {
 
   it('should throws when aliasID is empty', () => {
     const aliasWithouAliasID = {
-      id: new ID(),
+      id: new ID().id,
       aliasId: '',
-      userId: new ID(),
+      userId: new ID().id,
       description: 'description',
     }
 
@@ -26,9 +26,9 @@ describe('Alias entity unit tests', () => {
 
   it('should throws when description is empty', () => {
     const aliasWithoutDescription = {
-      id: new ID(),
+      id: new ID().id,
       aliasId: 'aliasId',
-      userId: new ID(),
+      userId: new ID().id,
       description: '',
     }
 
@@ -62,7 +62,7 @@ describe('Alias entity unit tests', () => {
   })
 
   it('should change userId', () => {
-    const userId = new ID()
+    const userId = new ID().id
     alias.changeUserId(userId)
     expect(alias.userId).toBe(userId)
   })

@@ -4,7 +4,7 @@ import { ID } from '@shared/domain/value-object/id.value-object'
 describe('Locale factory unit tests', () => {
   it('should create a locale', () => {
     const locale = LocaleFactory.create({
-      userId: new ID(),
+      userId: new ID().id,
       localeId: 'pt-br',
       languageCode: 'pt',
       displayName: 'Portuguese (Brazil)',

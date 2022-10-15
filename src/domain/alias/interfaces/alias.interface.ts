@@ -1,7 +1,5 @@
-import { ID } from '@shared/domain/value-object/id.value-object'
-
 interface IAlias {
-  userId: ID
+  userId: string
   aliasId: string
   extraInfo?: string
   description: string

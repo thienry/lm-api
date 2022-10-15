@@ -1,8 +1,6 @@
-import { ID } from '@shared/domain/value-object/id.value-object'
-
 interface IMapping {
-  userId: ID
   key: string
+  userId: string
   scriptName: string
 }
 
