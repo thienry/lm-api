@@ -30,7 +30,7 @@ class Locale extends BaseEntity implements AggregateRoot {
   initProps(props: LocaleProps) {
     this._userId = props.userId
     this._localeId = props.localeId
-    this._extraInfo = props.extraInfo
+    this._extraInfo = props.extraInfo ?? null
     this._displayName = props.displayName
     this._languageCode = props.languageCode
     this._nativeLanguageDescription = props.nativeLanguageDescription

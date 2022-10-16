@@ -1,10 +1,8 @@
-import { Column, Entity, PrimaryColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm'
-
-import { ID } from '@shared/domain/value-object/id.value-object'
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm'
 
 @Entity('mappings')
 class MappingModel {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: string
 
   @Column()
@@ -18,10 +16,6 @@ class MappingModel {
 
   @UpdateDateColumn()
   updatedAt: Date
-
-  constructor() {
-    if (!this.id) this.id = new ID().id
-  }
 }
 
 export { MappingModel }

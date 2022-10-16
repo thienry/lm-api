@@ -3,7 +3,7 @@ interface IAlias {
   aliasId: string
   extraInfo?: string
   description: string
-  isRestricted: boolean
+  isRestricted?: boolean
 }
 
 export { IAlias }

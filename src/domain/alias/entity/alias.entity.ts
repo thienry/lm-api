@@ -28,7 +28,7 @@ class Alias extends BaseEntity implements AggregateRoot {
   initProps(props: AliasProps): void {
     this._aliasId = props.aliasId
     this._description = props.description
-    this._extraInfo = props.extraInfo
+    this._extraInfo = props.extraInfo ?? null
     this._userId = props.userId
     this._isRestricted = props.isRestricted ?? false
   }

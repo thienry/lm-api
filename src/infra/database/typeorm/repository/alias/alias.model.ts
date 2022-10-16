@@ -1,23 +1,35 @@
-import { Column, Entity, PrimaryColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm'
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  PrimaryGeneratedColumn,
+} from 'typeorm'
 
-import { ID } from '@shared/domain/value-object/id.value-object'
+import { UserModel } from '../user/user.model'
 
 @Entity('aliases')
 class AliasModel {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: string
 
-  @Column()
+  @Column({ unique: true })
   aliasId: string
 
   @Column()
   description: string
 
-  @Column()
+  @Column({ nullable: true })
   extraInfo: string
 
-  @Column()
+  @Column({ default: false })
   isRestricted: boolean
+
+  @ManyToOne(() => UserModel)
+  @JoinColumn({ name: 'userId' })
+  user: UserModel
 
   @Column()
   userId: string
@@ -27,10 +39,6 @@ class AliasModel {
 
   @UpdateDateColumn()
   updatedAt: Date
-
-  constructor() {
-    if (!this.id) this.id = new ID().id
-  }
 }
 
 export { AliasModel }
